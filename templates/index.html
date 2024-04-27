@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOK RECOMMENDATION SYSTEM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+        }
+
+        nav ul li a.active {
+            background-color: #555;
+        }
+
+        .navbar-brand{
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size:30px;
+            transition: color 0.3s ease;
+        }
+        .navbar-brand:hover {
+         color: #FFFF00;
+         }
+        .card {
+        width: 100%;
+        margin-bottom: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h6 {
+            margin: 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .card-content p {
+            margin: 10px 0;
+            font-size: 20px;
+            color: #666;
+        }
+        .col-md-3 {
+        margin-top: 20px;
+    }
+         .card-content h6.rating {
+        color: #4CAF50;
+    }
+
+    .card-content h6.votes {
+        color: #FFC107;
+    }
+    </style>
+</head>
+<body>
+    <nav>
+        <a class="navbar-brand">My Book Recommender</a>
+        <ul>
+           <li><a href="/" class="active">Home</a></li>
+            <li><a href="/recommend">Recommend</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+
+        <!-- Card content goes here -->
+     <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-danger" style="font-size:50px; text-align:center; margin-top:50px;">Top 50 Books</h1>
+            </div>
+        </div>
+        <div class="row">
+            {% for i in range(book_name|length) %}
+            <div class="col-md-3" style="margin-top:50px">
+                <div class="card">
+                    <div class="card-content">
+                        <img src="{{ image[i] }}" alt="Harry Potter">
+                        <h6 class="text-black">{{ book_name[i] }}</h6>
+                        <h6 class="text-black">{{ author[i] }}</h6>
+                        <h6 class="text-black">Votes - {{ votes[i] }} </h6>
+                        <h6 class="text-black">Rating - {{ rating[i] }}</h6>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
