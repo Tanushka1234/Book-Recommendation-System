@@ -38,5 +38,4 @@ A smart Book Recommendation System that suggests books based on popularity and u
 
 ---
 
-## 📁 Project Structure
 
